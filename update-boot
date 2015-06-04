@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -xe
+mkinitcpio -p linux
+mount /dev/sda1 /mnt/EFI/
+cp /boot/initramfs-linux-fallback.img /mnt/EFI/EFI/arch/initramfs-arch-fallback.img 
+cp /boot/initramfs-linux.img /mnt/EFI/EFI/arch/initramfs-arch.img 
+cp /boot/vmlinuz-linux /mnt/EFI/EFI/arch/vmlinuz-arch.efi
+umount /mnt/EFI
